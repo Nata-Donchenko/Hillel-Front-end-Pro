@@ -1,11 +1,10 @@
-// homeTask 5.1.
+// homeTask 5.2.
+//Один долар коштує 26 гривень. Вивести дані з розрахунком вартості 10, 20, 30... 100 доларів
 
-for (let i = 20; i <=30; i +=0.5) {
-  console.log('for', i)
-}
+let dollars = [10, 20, 30, 40, 50, 60 ,70, 80, 90, 100]
+let priceOfDollar = 26
 
-let count = 20;
-while (count <=30) {
-  console.log('while', count)
-  count+= 0.5
+for (const dollar of dollars) {
+  let totalPrice = dollar * priceOfDollar
+  console.log(`for ${dollar} dollars price is ${totalPrice}`)
 }
