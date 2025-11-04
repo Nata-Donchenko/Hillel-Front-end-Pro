@@ -1,10 +1,20 @@
-// homeTask 5.2.
-//Один долар коштує 26 гривень. Вивести дані з розрахунком вартості 10, 20, 30... 100 доларів
+// homeTask 5.3.
+//Дано ціле число N (ввести через prompt). Вивести всі цілі числа від 1 до 100, квадрат яких не перевищує числа N
 
-let dollars = [10, 20, 30, 40, 50, 60 ,70, 80, 90, 100]
-let priceOfDollar = 26
+let num = prompt ('Enter some number')
 
-for (const dollar of dollars) {
-  let totalPrice = dollar * priceOfDollar
-  console.log(`for ${dollar} dollars price is ${totalPrice}`)
+for (let i = 1; i <= 100; i++) {
+  if (num >= i * i) {
+    console.log('for', i)
+  }
+}
+
+let firsNumber = 1
+while (num >= firsNumber * firsNumber) {
+  console.log('while', firsNumber)
+  firsNumber++
+
+  if (firsNumber > 100) {
+    break
+  }
 }
