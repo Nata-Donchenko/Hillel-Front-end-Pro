@@ -1,19 +1,11 @@
-// homeTask 4.4.
+// homeTask 5.1.
 
-let numOrStr = prompt("input number or string");
-console.log(numOrStr)
+for (let i = 20; i <=30; i +=0.5) {
+  console.log('for', i)
+}
 
-switch (true) {
-  case numOrStr === null:
-    console.log("ви скасували")
-    break;
-  case numOrStr.trim() === "":
-    console.log("Empty String");
-    break;  
-  case isNaN(+numOrStr):
-    console.log("number is Ba_NaN")
-    break;
-  default:
-    console.log("OK!")
-      break;
+let count = 20;
+while (count <=30) {
+  console.log('while', count)
+  count+= 0.5
 }
