@@ -1,20 +1,19 @@
-// homeTask 5.3.
-//Дано ціле число N (ввести через prompt). Вивести всі цілі числа від 1 до 100, квадрат яких не перевищує числа N
+// homeTask 5.4.
+// Дано ціле число (ввести через 'prompt'). 
+// З'ясувати, чи просто воно (простим називається число, більше 1, що не має інших дільників, крім 1 і себе).
 
-let num = prompt ('Enter some number')
+let num = prompt('Введіть число більше 1')
+let isPrimeNum = true
 
-for (let i = 1; i <= 100; i++) {
-  if (num >= i * i) {
-    console.log('for', i)
+for (let i = 2; i < num; i++) {
+  if (num % i === 0) {
+    isPrimeNum = false
+    break
   }
 }
 
-let firsNumber = 1
-while (num >= firsNumber * firsNumber) {
-  console.log('while', firsNumber)
-  firsNumber++
-
-  if (firsNumber > 100) {
-    break
-  }
+if (isPrimeNum === false) {
+  console.log(`Число ${num} не є простим`)
+} else {
+  console.log(`Число ${num} є простим`)
 }
