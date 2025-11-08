@@ -1,19 +1,18 @@
-// homeTask 5.4.
-// Дано ціле число (ввести через 'prompt'). 
-// З'ясувати, чи просто воно (простим називається число, більше 1, що не має інших дільників, крім 1 і себе).
+// Home task 6.1
+//Створіть об'єкт, що містить інформацію про користувача, таку як ім'я, вік, місце проживання тощо. 
+// Створіть метод об'єкту для отримання та відображення цих даних.
 
-let num = prompt('Введіть число більше 1')
-let isPrimeNum = true
-
-for (let i = 2; i < num; i++) {
-  if (num % i === 0) {
-    isPrimeNum = false
-    break
+let user = {
+  name: 'Nata',
+  age: 34,
+  city: 'Pivdenne',
+  id: 1,
+  getUserInfo () {
+    console.log (`User's name is ${this.name}`)
+    console.log (`User's age is ${this.age}`)
+    console.log (`User is living in ${this.city}`)
+    console.log (`User's id is ${this.id}`)
   }
 }
 
-if (isPrimeNum === false) {
-  console.log(`Число ${num} не є простим`)
-} else {
-  console.log(`Число ${num} є простим`)
-}
+user.getUserInfo()
