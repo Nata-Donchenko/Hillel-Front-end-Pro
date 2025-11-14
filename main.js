@@ -1,33 +1,37 @@
-// Home task 6.3
-// Створіть об'єкт, який матиме одну властивість з масивом об'єктів. 
-// Які представляють контакти у вашій контактній книзі. 
-// Кожен об'єкт має містити ім'я, номер телефону та адресу електронної пошти. 
-// Додайте метод для пошуку контакту за ім'ям та метод для додавання нових контактів.
+// Home task 7.1
+// Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 
+// 'func(" hello world", ['l', 'd'])' поверне нам "heo wor". 
+// Вихідний рядок та символи для видалення задає користувач.
 
-let contacts = {
-  abonents: [
-    {name: "Nata", phoneNumber: "+380937340271", email: "n@gmail.com"},
-    {name: "Katya", phoneNumber: "+380939353251", email: "k@gmail.com"},
-    {name: "Anya", phoneNumber: "+380677300235", email: "a@gmail.com"}
-  ],
-  findAbonentByName() {
-    let abonent = prompt("enter the name of abonent")
-    let findAbonent = this.abonents.find((a) => a.name.toLowerCase() === abonent.toLowerCase())
-    if (findAbonent) {
-      console.log(`abonent: ${findAbonent.name}, phone number: ${findAbonent.phoneNumber}, e-mail: ${findAbonent.email}`)
-    } else {
-      console.log(`We don't find an abonent with the name ${abonent}`)
-    }
-  },
-  toDoNewAbonent() {
-    let newName = prompt('Enter the name of new abonent')
-    let newPhonenumber = prompt(`Enter abonen's phone number`)
-    let newEmail = prompt(`Enter abonent's e-mail`)
-    this.abonents.push({name: newName, phoneNumber: newPhonenumber, email: newEmail})
-    console.log(`New abonent: ${newName}, phone number: ${newPhonenumber}, e-mail: ${newEmail}`)
-    console.log(this.abonents)
-  }
+const phrase = prompt('Enter a phrase')
+const letters = prompt('Enter the letters, which you want to delete')
+
+// функція, щоб перевести строку у масив
+function createArray(str) {
+  return str.split('')
 }
 
-contacts.findAbonentByName()
-contacts.toDoNewAbonent ()
+// функція, щоб прибрати елементи масиву, що є пробілом.
+// Для того, якщо користувач введе дві або більше літер через пробіл, щоб основна функція 
+// їх не прибирала із основної фрази і в результаті пробіли залишились
+function removeSpaces(arr) {
+  const result = []
+  arr.filter((el) => { // філтруємо масив
+    if (el !== ' ') {
+      result.push(el.toLowerCase()) // якщо елемент не дорівнює пробілу, то додаємо його у масив у нижньому регістрі, що б можна було видаляти як великі так і маленькі літери
+    }
+  })
+  return result
+}
+
+// основна функція по дз, видаляти можна скільки завгодно літер
+function removeLetters (promptPhrase, promptLetters) { // передаємо два параметри
+const phraseArray = createArray(promptPhrase) // переводимо основну фразу у массив щоб можна було його перебирати
+console.log(phraseArray)
+const lettersArray = removeSpaces(createArray(promptLetters)) // переводимо задані літери у масив та прибираємо пробіли
+console.log(lettersArray)
+const result = phraseArray.filter((el) => !lettersArray.includes(el.toLowerCase())) // перебираємо і фільтруємо масив з фразою на предмет того, що залишаються ті літери, які не містяться у масиві із заданими літерами. Перевірку робимо у нижньому регістрі, що дозволить приьирати і великі і маленькі літери
+return result.join('') // переводимо масив у строку
+}
+
+console.log(removeLetters(phrase, letters))
