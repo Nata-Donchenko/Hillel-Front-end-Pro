@@ -1,25 +1,25 @@
-// Home task 7.2
-// Дано масив з елементами різних типів. 
-// Створити функцію яка вираховує середнє арифметичне лише числових елементів даного масиву.
+// Home task 7.3
+// Реалізуйте функцію removeElement(array, item), щоб видалити елемент item з масиву array.
+// Наприклад:
+// const array = [1, 3, 4, 6, 2, 5, 7];
+// removeElement(array,4);
+// console.log(array); // Результат: [1, 3, 6, 2, 5, 7]
 
-const someArray = ['a', 258, '90', {name: 'nata', id: 9}, true, 'b', 5, "2", false]
+const someArray = [1, 3, 4, 6, 2, 5, 7, 4]
+console.log(someArray)
 
-function filterNumbers (arr) {
-  const result = []
-  arr.forEach((el) => {
-    if (typeof el === 'number' || typeof el === 'string') {
-      if (!isNaN(+el)) {
-        result.push(+el)
-      }
-    }
-  })
+function removeElement (arr, item) {
+  const result = arr.filter((el) => el !== item)
   return result
 }
 
-function averageNum (arr) {
-  const numbersArray = filterNumbers(arr)
-  const sum = numbersArray.reduce((acc, el) => (acc + el) ,0)
-  return sum / numbersArray.length
+function removeEl (arr, item) {
+  while (arr.indexOf(item) !== -1) {
+    arr.splice(arr.indexOf(item), 1)
+  }
+  return arr
 }
 
-console.log(averageNum(someArray))
+console.log(removeElement(someArray, 4))
+
+console.log(removeEl(someArray, 4))
