@@ -1,31 +1,26 @@
 
-// Home task 7.1
-// Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 
-// 'func(" hello world", ['l', 'd'])' поверне нам "heo wor". 
-// Вихідний рядок та символи для видалення задає користувач.
+// Home task 8.1 Замикання
+// Написати функцію, яка приймає 1 параметр. 
+// Та скадае значення з тим, що передали перший раз і т. д. Все це із замиканнями, наприклад:
+// console.log(sum(4)); // 4
+// console.log(sum(6)); // 10
+// console.log(sum(10)); // 20
+// console.log(sum(7)); // 27
 
-const phrase = prompt('Enter a phrase')
-const letters = prompt('Enter the letters, which you want to delete')
+function getTotalSum() {
+  let totalSum = 0
 
-function createArray(str) {
-  return str.split('')
+  function getSum(x) {
+    totalSum += x
+    return totalSum
+  }
+
+  return getSum
 }
 
-function removeSpaces(arr) {
-  const result = arr.reduce((acc,  el) => { 
-    if (el !== ' ') {
-      acc.push(el.toLowerCase()) 
-    }
-    return acc
-  }, [])
-  return result
-}
+const sum = getTotalSum()
 
-function removeLetters (promptPhrase, promptLetters) { 
-const phraseArray = createArray(promptPhrase) 
-const lettersArray = removeSpaces(createArray(promptLetters)) 
-const result = phraseArray.filter((el) => !lettersArray.includes(el.toLowerCase())) 
-return result.join('') 
-}
-
-console.log(removeLetters(phrase, letters))
+console.log(sum(4))
+console.log(sum(6))
+console.log(sum(10))
+console.log(sum(7))
