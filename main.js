@@ -1,25 +1,31 @@
-// Home task 7.3
-// Реалізуйте функцію removeElement(array, item), щоб видалити елемент item з масиву array.
-// Наприклад:
-// const array = [1, 3, 4, 6, 2, 5, 7];
-// removeElement(array,4);
-// console.log(array); // Результат: [1, 3, 6, 2, 5, 7]
 
-const someArray = [1, 3, 4, 6, 2, 5, 7, 4]
-console.log(someArray)
+// Home task 7.1
+// Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 
+// 'func(" hello world", ['l', 'd'])' поверне нам "heo wor". 
+// Вихідний рядок та символи для видалення задає користувач.
 
-function removeElement (arr, item) {
-  const result = arr.filter((el) => el !== item)
+const phrase = prompt('Enter a phrase')
+const letters = prompt('Enter the letters, which you want to delete')
+
+function createArray(str) {
+  return str.split('')
+}
+
+function removeSpaces(arr) {
+  const result = arr.reduce((acc,  el) => { 
+    if (el !== ' ') {
+      acc.push(el.toLowerCase()) 
+    }
+    return acc
+  }, [])
   return result
 }
 
-function removeEl (arr, item) {
-  while (arr.indexOf(item) !== -1) {
-    arr.splice(arr.indexOf(item), 1)
-  }
-  return arr
+function removeLetters (promptPhrase, promptLetters) { 
+const phraseArray = createArray(promptPhrase) 
+const lettersArray = removeSpaces(createArray(promptLetters)) 
+const result = phraseArray.filter((el) => !lettersArray.includes(el.toLowerCase())) 
+return result.join('') 
 }
 
-console.log(removeElement(someArray, 4))
-
-console.log(removeEl(someArray, 4))
+console.log(removeLetters(phrase, letters))
