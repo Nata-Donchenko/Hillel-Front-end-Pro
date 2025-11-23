@@ -1,26 +1,28 @@
+// Home task 9.1 Сходи
+// Створити ladder (сходи) – об'єкт, який дозволяє підніматися вгору та спускатися:
+// Тепер, якщо нам потрібно зробити кілька послідовних викликів, ми можемо виконати це так:
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
 
-// Home task 8.3 Функція з циклом
-// Цикл на кожній ітерації пропонує через prompt ввести число більше 100 (але максимум 10 ітерацій циклу) . 
-// Якщо відвідувач ввів число менше ста – попросити ввести ще раз, і таке інше. 
-// Якщо користувач вводить більше ста, текст або цикл закінчує всі ітерації, 
-// то функція виводить в консоль останній введення користувача і завершує функцію.
+// Змініть код методів up, down і showStep таким Таким чином, щоб їх виклик можна було зробити по ланцюжку, наприклад:
+// ladder.up().up().down().showStep(); // 1
 
-
-function getNum() {
-  let input = null
-  
-  for (let i = 0; i < 10; i++) {
-    input = prompt('Enter a number more than 100')
-
-    if (input === null || input === '') {
-      break
-    } else if (isNaN(+input)) {
-      break
-    } else if (+input > 100) {
-      break
-    }
-  }  
-  console.log (`Last entered value is '${input}'`)
+let ladder = {
+  step: 0,
+  up: function () {
+    this.step++
+    return this
+  },
+  down: function () {
+    this.step--
+    return this
+  },
+  showStep: function () { 
+    console.log(this.step)
+    return this
+  }
 }
 
-getNum()
+ladder.up().up().down().showStep()
