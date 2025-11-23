@@ -1,13 +1,26 @@
 
-// Home task 8.2 Каррінг
-// Створити функцію для розрахунку добутку двох чисел, що викликається так: name(5)(2).
-//  Функція повинна повертати результат (у середині функції не має бути консоль лога!)
+// Home task 8.3 Функція з циклом
+// Цикл на кожній ітерації пропонує через prompt ввести число більше 100 (але максимум 10 ітерацій циклу) . 
+// Якщо відвідувач ввів число менше ста – попросити ввести ще раз, і таке інше. 
+// Якщо користувач вводить більше ста, текст або цикл закінчує всі ітерації, 
+// то функція виводить в консоль останній введення користувача і завершує функцію.
 
-function getMultiplication(x) {
-  return function(y) {
-    return x * y
-  }
+
+function getNum() {
+  let input = null
+  
+  for (let i = 0; i < 10; i++) {
+    input = prompt('Enter a number more than 100')
+
+    if (input === null || input === '') {
+      break
+    } else if (isNaN(+input)) {
+      break
+    } else if (+input > 100) {
+      break
+    }
+  }  
+  console.log (`Last entered value is '${input}'`)
 }
 
-const result = getMultiplication(5)(2)
-console.log(result)
+getNum()
