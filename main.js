@@ -1,28 +1,28 @@
-// Home task 9.1 Сходи
-// Створити ladder (сходи) – об'єкт, який дозволяє підніматися вгору та спускатися:
-// Тепер, якщо нам потрібно зробити кілька послідовних викликів, ми можемо виконати це так:
-// ladder.up();
-// ladder.up();
-// ladder.down();
-// ladder.showStep(); // 1
+// 10.1 Дізнатись суму всіх зарплат користувачів:
+// Об'єкт може містити невідому кількість департаментів та співробітників
 
-// Змініть код методів up, down і showStep таким Таким чином, щоб їх виклик можна було зробити по ланцюжку, наприклад:
-// ladder.up().up().down().showStep(); // 1
-
-let ladder = {
-  step: 0,
-  up: function () {
-    this.step++
-    return this
-  },
-  down: function () {
-    this.step--
-    return this
-  },
-  showStep: function () { 
-    console.log(this.step)
-    return this
+let company = {
+  sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600}],
+  development: {
+    web: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1000}],
+    internals: [{name: 'Jack', salary: 1300}],
+    lawyers: {
+      firstDepartment: [{name: 'Ann', salary: 2000}, {name: 'Kate', salary: 2000}],
+      secondDepartment: [{name: 'Steve', salary: 1100}],
+    }
   }
 }
 
-ladder.up().up().down().showStep()
+function getTotalSalary(obj) {
+  if(Array.isArray(obj)) {
+    return obj.reduce((sum, worker) => sum + worker.salary, 0)
+  }
+
+  let total = 0
+
+  Object.keys(obj).forEach((key) => total += getTotalSalary(obj[key]))
+
+  return total
+}
+
+console.log(getTotalSalary(company))
