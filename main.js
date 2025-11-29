@@ -1,61 +1,24 @@
-// 11.1 Вивести таблицю Піфагора (10×10), 
-// таблиця повинна бути створена динамічно
+// HomeTassk 11.2. Кнопка зміни кольору
+//Є блок із текстом на сторінці та кнопка. 
+// При натисканні на кнопку текст змінює колір. 
+// При повторному натисканні – повертається попередній колір
 
 const body = document.querySelector('body')
-const wrapper = document.createElement('div')
-body.appendChild(wrapper)
 
-const wrapperTags = ['p', 'h1', 'table']
-wrapperTags.forEach((tag) => {
-  const newTag = document.createElement(tag)
-  wrapper.appendChild(newTag)
-})
+const someText = document.createElement('p')
+someText.textContent = 'Home task 11.2'
+someText.classList.add('text')
 
-const taskNumber = document.querySelector('p')
-taskNumber.textContent = 'Home task 11.1'
+const someButton = document.createElement('button')
+someButton.textContent = 'Button'
+someButton.classList.add('btn')
 
-const taskName = document.querySelector('h1')
-taskName.textContent = "Table of Pythagoras"
-taskName.style.textAlign = 'center'
+body.appendChild(someText)
+body.appendChild(someButton)
 
-const table = document.createElement('table')
-table.style.cssText = `
-  background: #03bfaf80;
-  margin: 0 auto;
-  text-aline: center
-`
-wrapper.appendChild(table)
-
-for (let i = 1; i <= 10; i++) {
-  const line = document.createElement('tr')
-  table.appendChild(line)
-
-  if (i === 1) {
-    line.style.color = '#38aea5ff'
-    line.style.fontWeight = 'bold'
-    line.style.background = 'black'
-  }
-
-  for (let j = 1; j <= 10; j++) {
-    const cell = document.createElement('td')
-    cell.style.cssText = `
-      padding: 10px; 
-      font-size: 20px; 
-      text-align: center;
-      border: 1px solid black
-    `
-    cell.textContent = i * j
-    line.appendChild(cell)
-    
-    if (j === 1) {
-      cell.style.color = '#38aea5ff'
-      cell.style.fontWeight = 'bold'
-      cell.style.background = 'black'
-    } 
-    
-    if (i === j && i != 1) {
-      cell.style.fontWeight = 'bold'
-      cell.style.background = '#21787188'
-    }
-  }
+function changeColor() {
+  someButton.classList.toggle('btn-change-color')
+  someText.classList.toggle('text-change-color')
 }
+
+someButton.addEventListener('click', changeColor)

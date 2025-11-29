@@ -1,0 +1,25 @@
+.text {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(228, 25, 167);
+
+}
+
+.text-change-color {
+  color: #0b927b;;
+}
+
+.btn {
+    background-color: #0a9c84;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(241, 153, 214);
+    padding: 14px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-change-color {
+  background-color: rgb(241, 153, 214);
+  color: #0a9c84;
+}
