@@ -1,4 +1,4 @@
-// 10.1 Вивести таблицю Піфагора (10×10), 
+// 11.1 Вивести таблицю Піфагора (10×10), 
 // таблиця повинна бути створена динамічно
 
 const body = document.querySelector('body')
@@ -12,7 +12,7 @@ wrapperTags.forEach((tag) => {
 })
 
 const taskNumber = document.querySelector('p')
-taskNumber.textContent = 'Home task 10.1'
+taskNumber.textContent = 'Home task 11.1'
 
 const taskName = document.querySelector('h1')
 taskName.textContent = "Table of Pythagoras"
@@ -36,7 +36,7 @@ for (let i = 1; i <= 10; i++) {
     line.style.background = 'black'
   }
 
-  for (let j = 1; j <=10; j++) {
+  for (let j = 1; j <= 10; j++) {
     const cell = document.createElement('td')
     cell.style.cssText = `
       padding: 10px; 
