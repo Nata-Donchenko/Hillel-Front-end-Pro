@@ -1,13 +1,22 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .btn {
-    width: 500px;
-    background-color: #0a9c84;
-    font-size: 60px;
-    font-weight: bold;
-    text-align: center;
-    color: rgb(241, 153, 214);
-    padding: 14px 40px;
-    border-radius: 8px;
-    cursor: pointer;
+  width: 500px;
+  background-color: #0a9c84;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(241, 153, 214);
+  padding: 14px 40px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .btn:hover {

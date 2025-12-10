@@ -1,42 +1,36 @@
-// ДЗ 12.1. Переход на сторінку
-// На сторінці є дві кнопки. 
-// При натисканні на першу кнопку користувач повинен ввести в prompt посилання, 
-// при натисканні на другу – переадресовується на інший сайт 
-// (за раніше введеним посиланням).
+// ДЗ 12.2. Використання подій
+// Створіть HTML-сторінку з декількома кнопками. 
+// Ваше завдання - створити обробник подій для батьківського 
+// елементу, який відслідковуватиме кліки на всіх кнопках.
+
+// Покроковий план:
+
+// 1. Створіть HTML-елементи: батьківський контейнер 
+// з декількома вкладеними кнопками.
+
+// 2. Додайте обробник подій до батьківського контейнера, 
+// який відслідковуватиме кліки.
+
+// 3. Після кліку на будь-якій кнопці, 
+// виведіть повідомлення про те, яка саме кнопка була клікнута.
 
 const body = document.querySelector('body')
 
-const promptBtn = document.createElement('button')
-promptBtn.textContent = 'prompt'
-promptBtn.classList.add('btn')
+const container = document.createElement('div')
+container.classList.add('container')
+body.appendChild(container)
 
-const linkBtn = document.createElement('button')
-linkBtn.textContent = 'link'
-linkBtn.classList.add('btn')
-
-body.appendChild(promptBtn)
-body.appendChild(linkBtn)
-
-let usersUrl = ''
-
-function getUrl () {
-  const url = prompt('Enter URL', 'http://')
-
-  if (!url || url === 'http://' || url=== '') {
-    alert('Try again')
-    return
-  }
-
-  usersUrl = url
+for (let i = 1; i <=3; i++) {
+  const btn = document.createElement('button')
+  btn.classList.add('btn')
+  btn.textContent = `Button ${i}`
+  container.appendChild(btn)
 }
 
-function changeUrl () {
-  if (!usersUrl) {
-    alert('At first click button "prompt"')
+function getBtnNum (event) {
+  if (event.target.tagName === 'BUTTON') {
+    alert(`Clicked ${event.target.textContent}`)
   }
-  
-  window.location.href = usersUrl
 }
 
-promptBtn.addEventListener('click', getUrl)
-linkBtn.addEventListener('click', changeUrl)
+container.addEventListener('click', getBtnNum)
