@@ -1,32 +1,42 @@
-// HomeTask 11.3. Отримання випадкового зображення
-// Покласти в папку будь-які зображення 
-// 1.jpg, 2.jpg, 3.jpg, 4.jpg, 5.jpg, 6.jpg, 7.jpg, 8.jpg, 9.jpg. 
-// Вивести зображення, отримане випадковим чином (Math.random)
+// ДЗ 12.1. Переход на сторінку
+// На сторінці є дві кнопки. 
+// При натисканні на першу кнопку користувач повинен ввести в prompt посилання, 
+// при натисканні на другу – переадресовується на інший сайт 
+// (за раніше введеним посиланням).
 
 const body = document.querySelector('body')
 
-const container = document.createElement('div')
-container.classList.add('container')
+const promptBtn = document.createElement('button')
+promptBtn.textContent = 'prompt'
+promptBtn.classList.add('btn')
 
-body.appendChild(container)
+const linkBtn = document.createElement('button')
+linkBtn.textContent = 'link'
+linkBtn.classList.add('btn')
 
-const button = document.createElement('button')
-button.classList.add('btn')
-button.textContent = 'Click for a random image'
-container.appendChild(button)
+body.appendChild(promptBtn)
+body.appendChild(linkBtn)
 
-const image = document.createElement('img')
-container.appendChild(image)
+let usersUrl = ''
 
-const images = []
-for (let i = 1; i <= 9; i++) {
-  images.push(`images/${i}.jpg`)
+function getUrl () {
+  const url = prompt('Enter URL', 'http://')
+
+  if (!url || url === 'http://' || url=== '') {
+    alert('Try again')
+    return
+  }
+
+  usersUrl = url
 }
 
-function getImage () {
-  let randomNumber = Math.floor(Math.random() * images.length)
-  image.src = images[randomNumber]
-  image.classList.add('img')
+function changeUrl () {
+  if (!usersUrl) {
+    alert('At first click button "prompt"')
+  }
+  
+  window.location.href = usersUrl
 }
 
-button.addEventListener('click', getImage)
+promptBtn.addEventListener('click', getUrl)
+linkBtn.addEventListener('click', changeUrl)
