@@ -1,67 +1,75 @@
-// ДЗ 12.3. TODO лист
-// Створіть HTML-сторінку, яка містить список завдань (to-do list) з можливістю додавання нових завдань. 
-// Ваше ціль - використовуючи делегування подій, створити обробник подій для списку завдань, 
-// який дозволить видаляти завдання при кліку на них.
+// ДЗ 13.1. Доробити валідацію для надсилання повідомлення з використанням регулярних виразів:
 
-// Покроковий план:
+// Поля:
 
-// Створіть HTML-елементи: список завдань ul, текстове поле для вводу нових завдань та кнопку для додавання.
-// Додайте обробник подій до списку завдань ul, використовуючи делегування.
-// При кліку на будь-якій кнопці видалення, видаліть цей пункт.
-// Додайте можливість вводити нові завдання у текстове поле і додавати їх до списку за допомогою кнопки.
+// Name - обов'язкове текстове поле
+// Message - текстове поле не менше 5 символів
+// Phone number - обов'язкове поле типу phone. З початком на +380
+// Email - email обов'язково повинен мати @ та крапку
+// Після відправки, в консоль відображаємо дані, які ввів користувач.
 
-const body = document.querySelector('body')
+// Під час помилки показувати її під полем.
 
-const container = document.createElement('div')
-container.classList.add('container')
-body.appendChild(container)
+const form = document.querySelector('#form')
+const nameInput = document.querySelector('#name')
+const phoneInput = document.querySelector('#phone')
+const emailInput = document.querySelector('#email')
+const messageInput = document.querySelector('#message')
 
-const title = document.createElement('h1')
-title.textContent = 'My tasks'
+nameInput.addEventListener('change', () => {
+  nameInput.setCustomValidity('')
+})
 
-const inputDiv = document.createElement('div')
-inputDiv.classList.add('input-wrapper')
+phoneInput.addEventListener('change', () => {
+  phoneInput.setCustomValidity('')
+})
 
-const list = document.createElement('ul')
+emailInput.addEventListener('change', () => {
+  emailInput.setCustomValidity('')
+})
 
-container.append(title, inputDiv, list)
+messageInput.addEventListener('change', () => {
+  messageInput.setCustomValidity('')
+})
 
-const input = document.createElement('input')
-input.type = 'text'
-input.placeholder = 'Enter a task'
+form.addEventListener('submit', (e) => {
 
-const addBtn = document.createElement('button')
-addBtn.classList.add('addBtn')
-addBtn.textContent = 'Add'
+  e.preventDefault()
+  let isValid = true
 
-inputDiv.append(input, addBtn)
+  const userName = nameInput.value.trim()
 
+  if (userName.length < 2) {
+    nameInput.setCustomValidity("Enter your name. The name must be at least two characters long")
+    isValid = false
+  } 
 
-function addTask () {
-  const taskText = input.value
+  const userMessage = messageInput.value.trim()
 
-  if (taskText === '') {
+  if (userMessage === '' || userMessage.length < 5) {
+    messageInput.setCustomValidity("The message must be at least 5 characters long")
+    isValid = false
+  } 
+
+  const userPhone = phoneInput.value.trim()
+
+  if(userPhone === '' || !userPhone.startsWith('+380') || userPhone.length !==13) {
+    phoneInput.setCustomValidity('The phone number must start with +380 and contain 12 digits')
+    isValid = false
+  } 
+
+  const userEmail = emailInput.value.trim()
+
+  if(userEmail === '' || !userEmail.includes('@') || !userEmail.includes('.') || userEmail.startsWith('@')) {
+    emailInput.setCustomValidity("Enter a valid email")
+    isValid = false
+  } 
+
+  if (!isValid) {
+    form.reportValidity()
     return
   }
 
-  const task = document.createElement('li')
-  task.textContent = taskText
-
-  const removeBtn = document.createElement('button')
-  removeBtn.classList.add('removeBtn')
-  removeBtn.textContent = 'Delete'
-
-  list.appendChild(task)
-  task.appendChild(removeBtn)
-
-  input.value = ''
-}
-
-function removeTask (event) {
-  if (event.target.tagName === 'BUTTON') {
-    event.target.parentNode.remove()
-  }
-}
-
-addBtn.addEventListener('click', addTask)
-list.addEventListener('click', removeTask)
+  const data = Object.fromEntries(new FormData(e.target).entries())
+  console.log('Form data:', data)
+})

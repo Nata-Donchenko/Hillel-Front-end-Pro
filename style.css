@@ -1,96 +1,58 @@
-.container {
-  display: flex;
-  flex-direction: column ;
-  align-items: center;
+form {
+  display: inline-block;
+  text-align: center;
 
-  width: 600px;
-  padding-bottom: 30px;
+  padding: 10px;
 
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 8px;
-  
-  background-color: #d3fff8;
+
+  background-color: aliceblue;
 }
 
 h1 {
-  font-size: 50px;
+  color: rgba(229, 30, 30, 0.829);
+
+  font-size: 40px;
 }
 
-.input-wrapper {
-  display:flex;
+fieldset {
+  display: flex;
+  flex-direction: column;
 
   gap: 10px;
 }
 
-input {
+.input {
   padding: 10px;
 
   border-radius: 8px;
 
-  font-size: 30px;
+  font-size: 36px;
 }
 
-.addBtn {
-  text-align: center;
+textarea {
+  font-size: 36px;
 
-  padding: 10px 20px;
+  resize: vertical;
+}
+
+button {
+  width: 94%;
+  padding: 10px;
+  margin-top: 20px;
 
   border-radius: 8px;
+  
+  color: white;
+  background-color: rgb(105, 172, 249);
 
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
-  
-  color: rgb(241, 153, 214);
-  background-color: #95f2e3;
-  
+
   cursor: pointer;
 }
 
-.addBtn:hover {
-  background-color: #0c8873;
-}
-
-ul {
-  width: 500px;
-  padding: 0;
-  margin: 0;
-  margin-top: 10px;
-}
-
-li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;  
-
-  padding: 10px;
-  margin-bottom: 8px;
-
-  border: 1px solid black;
-  border-radius: 8px;                
-           
-  font-size: 30px;
-  
-  background-color: rgba(251, 202, 236, 0.684);
-
-  list-style: none;
-}
-
-.removeBtn {
-  text-align: center;
-
-  padding: 10px;
-
-  border-radius: 8px;
-
-  font-size: 20px;
-  font-weight: bold;
-
-  background-color: rgb(241, 153, 214);
-  color: #95f2e3;
-  
-  cursor: pointer;
-}
-
-.removeBtn:hover {
-  background-color: rgb(211, 133, 188);
+button:hover {
+  background-color: rgb(70, 113, 163);
 }

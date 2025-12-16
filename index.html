@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My home tasks</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My home tasks</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <script src="./main.js"></script>
+  <form action="" id="form">
+      <h1>We would like to help you</h1>
+      <fieldset>
+        <label for="name"></label>
+        <input id="name" class="input" name="user-name" type="text" placeholder="Name"/>
+        
+        <label for="message"></label>
+        <textarea id="message" class="input" name="user-message" placeholder="Message"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <label for="phone"></label>
+        <input id="phone" class="input" name="user-phone" type="tel" placeholder="Phone number">
+
+        <label for="email"></label>
+        <input id="email" class="input" name="user-email" type="email" placeholder="Email">
+      </fieldset>
+
+      <button type="submit">Send message</button>
+
+  </form>
+
+  <script src="./main.js"></script>
     
 </body>
 </html>
