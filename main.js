@@ -1,75 +1,67 @@
-// ДЗ 13.1. Доробити валідацію для надсилання повідомлення з використанням регулярних виразів:
+// 14.1 Пишемо свій слайдер зображень, який повинен:
 
-// Поля:
+// Відображати зображення та кнопки Next, Prev з боків від зображення.
+// При кліку на Next - показуємо наступне зображення.
+// При кліку на Prev - попереднє
+// При досягненні останнього зображення - ховати кнопку Next. Аналогічно з першим зображенням і кнопкою Prev
+// Кількість слайдів може бути будь-якою
+// Додати можливість навігації через точки під слайдами
 
-// Name - обов'язкове текстове поле
-// Message - текстове поле не менше 5 символів
-// Phone number - обов'язкове поле типу phone. З початком на +380
-// Email - email обов'язково повинен мати @ та крапку
-// Після відправки, в консоль відображаємо дані, які ввів користувач.
+const sliderLine = document.querySelector('.slider_line')
+const slides = document.querySelectorAll('.slide')
+const dots = document.querySelectorAll('.slider_dot')
+const btnNext = document.querySelector('.btn-next')
+const btnPrev = document.querySelector('.btn-prev')
 
-// Під час помилки показувати її під полем.
+let slideIndex = 0
+const slideWidth = 800
 
-const form = document.querySelector('#form')
-const nameInput = document.querySelector('#name')
-const phoneInput = document.querySelector('#phone')
-const emailInput = document.querySelector('#email')
-const messageInput = document.querySelector('#message')
+moveSlider()
 
-nameInput.addEventListener('change', () => {
-  nameInput.setCustomValidity('')
+btnNext.addEventListener('click', nextSlide)
+btnPrev.addEventListener('click', prevSlide)
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    slideIndex = index
+    moveSlider()
+  })
 })
 
-phoneInput.addEventListener('change', () => {
-  phoneInput.setCustomValidity('')
-})
+function nextSlide() {
+  slideIndex++
 
-emailInput.addEventListener('change', () => {
-  emailInput.setCustomValidity('')
-})
-
-messageInput.addEventListener('change', () => {
-  messageInput.setCustomValidity('')
-})
-
-form.addEventListener('submit', (e) => {
-
-  e.preventDefault()
-  let isValid = true
-
-  const userName = nameInput.value.trim()
-
-  if (userName.length < 2) {
-    nameInput.setCustomValidity("Enter your name. The name must be at least two characters long")
-    isValid = false
-  } 
-
-  const userMessage = messageInput.value.trim()
-
-  if (userMessage === '' || userMessage.length < 5) {
-    messageInput.setCustomValidity("The message must be at least 5 characters long")
-    isValid = false
-  } 
-
-  const userPhone = phoneInput.value.trim()
-
-  if(userPhone === '' || !userPhone.startsWith('+380') || userPhone.length !==13) {
-    phoneInput.setCustomValidity('The phone number must start with +380 and contain 12 digits')
-    isValid = false
-  } 
-
-  const userEmail = emailInput.value.trim()
-
-  if(userEmail === '' || !userEmail.includes('@') || !userEmail.includes('.') || userEmail.startsWith('@')) {
-    emailInput.setCustomValidity("Enter a valid email")
-    isValid = false
-  } 
-
-  if (!isValid) {
-    form.reportValidity()
-    return
+  if (slideIndex >= slides.length) {
+    slideIndex = slides.length - 1
   }
 
-  const data = Object.fromEntries(new FormData(e.target).entries())
-  console.log('Form data:', data)
-})
+  moveSlider()
+}
+
+function prevSlide() {
+  slideIndex--
+
+  if (slideIndex < 0) {
+    slideIndex = 0
+  }
+
+  moveSlider()
+}
+
+function moveSlider() {
+  sliderLine.style.transform = `translateX(-${slideIndex * slideWidth}px)`
+
+  updateDots()
+
+  updateButtons()
+}
+
+function updateDots() {
+  dots.forEach(dot => dot.classList.remove('active-dot'))
+  dots[slideIndex].classList.add('active-dot')
+}
+
+function updateButtons() {
+  btnPrev.classList.toggle('btn-no_active', slideIndex === 0)
+  btnNext.classList.toggle('btn-no_active', slideIndex === slides.length - 1)
+}

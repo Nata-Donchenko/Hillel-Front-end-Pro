@@ -7,28 +7,37 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <form action="" id="form">
-      <h1>We would like to help you</h1>
-      <fieldset>
-        <label for="name"></label>
-        <input id="name" class="input" name="user-name" type="text" placeholder="Name"/>
-        
-        <label for="message"></label>
-        <textarea id="message" class="input" name="user-message" placeholder="Message"></textarea>
-      </fieldset>
+  <div class="slider">
+    <div class="slider_line">
+      <div class="slide">
+        <img src="./dogs/1.jpg" alt="dog">
+      </div>
+      <div class="slide">
+        <img src="./dogs/2.jpg" alt="dog">
+      </div>
+      <div class="slide">
+        <img src="./dogs/3.jpg" alt="dog">
+      </div>
+      <div class="slide">
+        <img src="./dogs/4.jpg" alt="dog">
+      </div>
+      <div class="slide">
+        <img src="./dogs/5.jpg" alt="dog">
+      </div>
+    </div>
 
-      <fieldset>
-        <label for="phone"></label>
-        <input id="phone" class="input" name="user-phone" type="tel" placeholder="Phone number">
+    <button class="slider_btn btn-prev">prev</button>
+    <button class="slider_btn btn-next">next</button>
 
-        <label for="email"></label>
-        <input id="email" class="input" name="user-email" type="email" placeholder="Email">
-      </fieldset>
-
-      <button type="submit">Send message</button>
-
-  </form>
-
+    <div class="slider_wrapper">
+      <div class="slider_dot active-dot"></div>
+      <div class="slider_dot"></div>
+      <div class="slider_dot"></div>
+      <div class="slider_dot"></div>
+      <div class="slider_dot"></div>
+    </div>
+  </div>
+  
   <script src="./main.js"></script>
     
 </body>
