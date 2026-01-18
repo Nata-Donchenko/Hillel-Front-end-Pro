@@ -1,90 +1,78 @@
-// 17.1. Клас "Калькулятор"
-// Створіть клас Calculator, який буде мати методи для виконання базових математичних 
-// операцій: додавання, віднімання, множення та ділення.
+// ДЗ 18.1. Таймер відліку
 
-class Calculator {
-  add(a, b) {
-    return a + b
+// Реалізувати таймер відліку:
+
+// Початок таймера визначати із змінної
+// Відобразити на сторінці час у форматі 01:25
+// Коли закінчився таймер зупинити його
+
+class Timer {
+  constructor(time) {
+    this.time = time
+    this.initialTime = time
+    this.timer = document.querySelector('.timer')
+    this.btnStart = document.querySelector('.btn-start')
+    this.btnStop = document.querySelector('.btn-stop')
+    this.btnReset = document.querySelector('.btn-reset')
+    this.interval = null
+    
+    this.btnStart.addEventListener('click', () => this.start())
+    this.btnStop.addEventListener('click', () => this.stop())
+    this.btnReset.addEventListener('click', () => this.reset())
+
+    this.addTimer()
   }
 
-  subtract(a, b) {
-    return a - b
-  }
+  addTimer() {
+    let minutes = Math.floor(this.time / 60)
+    let seconds = this.time % 60
 
-  multiply(a, b) {
-    return a * b
-  }
-
-  divide(a, b) {
-    return a / b
-  }
-}
-
-const calc = new Calculator()
-console.log(calc.add(5, 3))
-console.log(calc.subtract(10, 4))
-console.log(calc.multiply(3, 6))
-console.log(calc.divide(8, 2))
-
-
-// 17.2. Клас "Тренер"
-// Створіть клас Coach, який буде представляти тренера. 
-// Додайте властивості, такі як ім'я, спеціалізація та рейтинг. 
-// Також реалізуйте метод для виведення інформації про тренера та його рейтинг.
-
-class Coach {
-  constructor (name, specialization, rating) {
-    this.name = name
-    this.specialization = specialization
-    this.rating = rating
-  }
-
-  displayInfo () {
-    console.log(`Coach: ${this.name}, Specialization: ${this.specialization}, Rating: ${this.rating}`)
-  }
-}
-
-const coach1 = new Coach('John Doe', 'Fitness', 4.7);
-const coach2 = new Coach('Alice Smith', 'Yoga', 4.9);
-
-coach1.displayInfo()
-coach2.displayInfo()
-
-
-// 17.3. Клас "Банківський рахунок"
-// Створіть клас BankAccount, який буде представляти банківський рахунок. 
-// Додайте властивість балансу та методи для внесення та зняття грошей.
-
-class BankAccount {
-  #balance
-
-  constructor (balance) {
-    this.#balance = balance
-  }
-
-  deposit(value) {
-    return this.#balance += value
-  }
-
-  withdraw(value) {
-    if(value > this.#balance) {
-      console.log("You don't have a money")
-      return
+    if(minutes < 10) {
+      minutes = '0' + minutes
     }
 
-    this.#balance -= value
+    if(seconds < 10) {
+      seconds = '0' + seconds
+    }
+
+    this.timer.textContent = `${minutes}:${seconds}`
+
+    if(this.time > 0) {
+      this.time--
+    }
+
+    return this.timer.textContent
   }
 
-  getBalance() {
-    return this.#balance
+  start() {
+    if(this.interval) {
+      return
+    } 
+
+    this.timer.classList.remove('timer-stop')
+
+    this.interval = setInterval(() => {
+    this.addTimer()
+    }, 1000)
+  }
+
+  stop() {
+
+    if(this.interval) {
+      this.timer.classList.add('timer-stop')
+      clearInterval(this.interval)
+      this.interval = null
+    }
+  }
+
+  reset() {
+    this.timer.classList.remove('timer-stop')
+
+    clearInterval(this.interval)
+    this.interval = null
+    this.time = this.initialTime
+    this.addTimer()
   }
 }
 
-const account1 = new BankAccount(1000);
-console.log(account1.getBalance()); 
-
-account1.deposit(500);
-console.log(account1.getBalance()); 
-
-account1.withdraw(200);
-console.log(account1.getBalance());
+const timer = new Timer(85)
