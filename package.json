@@ -1,0 +1,26 @@
+{
+  "name": "hillel",
+  "version": "1.0.0",
+  "description": "hillel 2025-2026",
+  "homepage": "https://github.com/Nata-Donchenko/Hillel-Front-end-Pro#readme",
+  "bugs": {
+    "url": "https://github.com/Nata-Donchenko/Hillel-Front-end-Pro/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nata-Donchenko/Hillel-Front-end-Pro.git"
+  },
+  "license": "ISC",
+  "author": "Nata Donchenko",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.19"
+  }
+}
