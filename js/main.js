@@ -1,12 +1,19 @@
-// 19.1 За допомогою запиту вивести виджет погоди.
-// Ресурс API https://openweathermap.org/current
-// Також потрібно додати кнопку оновлення данних.
+// 20.1. Переробити ToDo-list з використанням Jquery
+// За допомогою Bootstrap створити модальне вікно до TODO list, 
+// яке по кліку на завдання буде показувати вікно з його текстом. 
 
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '../style.css'
 
-import { showWether } from './modules/widget.js'
-import { searchBtn, searchInput } from './modules/dom.js'
+import { refs } from './modules/dom.js'
+import { onSubmit } from './modules/todoForm.js'
+import { onClickByList, addInitList } from './modules/todoList.js'
+import { updateTimers } from './modules/deadline.js'
 
-searchBtn.addEventListener('click', () => {
-  showWether(searchInput.value)
-  searchInput.value = ''
-})
+refs.todoForm.addEventListener('submit', onSubmit)
+refs.list.addEventListener('click', onClickByList)
+
+addInitList()
+setInterval(updateTimers, 1000)
+updateTimers()
