@@ -2,6 +2,8 @@
 // За допомогою Bootstrap створити модальне вікно до TODO list, 
 // яке по кліку на завдання буде показувати вікно з його текстом. 
 
+// 21.1. Оптимізувати минуле ДЗ із використанням babel
+
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../style.css'

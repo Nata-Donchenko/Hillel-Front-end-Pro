@@ -12,16 +12,22 @@
   },
   "license": "ISC",
   "author": "Nata Donchenko",
-  "type": "commonjs",
   "main": "main.js",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "babel js -d dist",
+    "watch": "babel js -d dist --watch",
+    "serve": "npx http-server . -p 8080"
   },
   "devDependencies": {
+    "@babel/cli": "^7.28.6",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
     "vite": "^7.3.1"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
     "dayjs": "^1.11.19"
-  }
+  },
+  "keywords": []
 }

@@ -24,11 +24,9 @@ export const dataList = {
 
   changeStatus(id) {
     this.todoList = this.todoList.map(todo => {
-
       if(todo.id === id) {
         return {...todo, isCompleted: !todo.isCompleted}
       }
-
       return todo
     })
   },
