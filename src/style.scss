@@ -1,0 +1,161 @@
+$color1: #ff9900;
+$color2: #ebedee;
+$color3: #ffe4a0;
+$color4: #ff8008;
+$color5: #ffffff;
+$color6: #6f6f6f;
+$color7: #ffe4e1;
+$color8: #ea4905;
+$color9: #ffc5be;
+
+body {
+  background-color: $color1;
+}
+
+.todoWrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.todoContainer {
+  width: 800px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: $color5;
+}
+
+.todoTitle {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 800;
+  color: salmon;
+}
+
+.todoForm {
+  margin-bottom: 20px;
+  display: flex;
+
+  input {
+    height: 40px;
+    padding: 0 10px;
+    border: none;
+    flex-grow: 1;
+    background-color: $color2;
+    font-size: 16px;
+
+    &:focus {
+      background-color: $color3;
+      outline: none;
+    }
+  }
+
+  button {
+    height: 40px;
+    padding: 0 12px;
+    background-color: $color4;
+    border: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: $color5;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+}
+
+.todoInput {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  flex: 0 0 50%;
+}
+
+.deadlineDate,
+.deadlineTime {
+  flex: 1 1 0;
+}
+
+.todoList {
+  padding: 0;
+  margin: 0;
+}
+
+.todoItem {
+  min-height: 44px;
+  padding: 6px;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.todoItemText {
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  position: relative;
+  flex-grow: 1;
+  cursor: pointer;
+
+  &::after {
+    width: 12px;
+    height: 12px;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+  }
+}
+
+.todoTaskDone {
+  color: $color6;
+  text-decoration: line-through;
+
+  &::before {
+    width: 8px;
+    height: 8px;
+    background-color: $color4;
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.todoDeadline {
+  margin: 0;
+  padding: 0 10px;
+}
+
+.todoItemBtnDelete {
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  background-color: $color7;
+  border: 1px solid $color8;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: $color9;
+    transition: 0.2s;
+  }
+
+  img {
+    width: 100%;
+    pointer-events: none;
+  }
+}
