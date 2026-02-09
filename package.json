@@ -1,7 +1,7 @@
 {
   "name": "hillel",
   "version": "1.0.0",
-  "description": "hillel 2025-2026",
+  "description": "front-end pro 2025-2026",
   "homepage": "https://github.com/Nata-Donchenko/Hillel-Front-end-Pro#readme",
   "bugs": {
     "url": "https://github.com/Nata-Donchenko/Hillel-Front-end-Pro/issues"
@@ -12,36 +12,19 @@
   },
   "license": "ISC",
   "author": "Nata Donchenko",
+  "type": "commonjs",
   "main": "main.js",
   "scripts": {
-    "dev": "webpack serve --mode development",
-    "build": "webpack --mode production",
-    "watch": "webpack --mode development --watch",
-    "serve": "webpack serve --mode development"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.28.6",
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.0",
-    "css-loader": "^7.1.3",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.6.6",
-    "image-minimizer-webpack-plugin": "^4.1.4",
-    "image-webpack-loader": "^8.1.0",
-    "mini-css-extract-plugin": "^2.10.0",
-    "sass": "^1.97.3",
-    "sass-loader": "^16.0.6",
-    "style-loader": "^4.0.0",
-    "vite": "^7.3.1",
-    "webpack": "^5.105.0",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.3",
-    "webpack-watch-external-files-plugin": "^4.1.0"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "babel-loader": "^10.0.0",
     "bootstrap": "^5.3.8",
     "dayjs": "^1.11.19"
   },
-  "keywords": []
+  "devDependencies": {
+    "sass-embedded": "^1.97.3",
+    "vite": "^7.3.1"
+  }
 }

@@ -1,7 +1,7 @@
 import deleteBtn from '../../images/delete-btn.png'
-import { getTime } from "./deadline.js"
-import { refs } from "./dom.js"
-import { modalState, deleteModal } from './modal.js'
+import { getTime } from "@modules/deadline.js"
+import { refs } from "@modules/dom.js"
+import { modalState, deleteModal } from '@modules/modal.js'
 
 export const dataList = {
   todoList: [],

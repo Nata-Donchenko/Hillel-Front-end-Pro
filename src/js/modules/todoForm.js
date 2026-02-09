@@ -1,7 +1,7 @@
 
 import dayjs from "dayjs"
-import { dataList, templateTodoItem } from "./todoList.js"
-import { refs } from "./dom.js"
+import { dataList, templateTodoItem } from "@modules/todoList.js"
+import { refs } from "@modules/dom.js"
 
 export function onSubmit(event) {
   event.preventDefault()

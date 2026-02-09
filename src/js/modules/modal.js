@@ -1,7 +1,7 @@
 
 import { Modal } from 'bootstrap'
-import { refs } from './dom.js'
-import { dataList } from './todoList.js'
+import { refs } from '@modules/dom.js'
+import { dataList } from '@modules/todoList.js'
 
 export const deleteModal = new Modal(refs.modal)
 

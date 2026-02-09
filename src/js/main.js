@@ -12,10 +12,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../style.scss'
 
-import { refs } from './modules/dom.js'
-import { onSubmit } from './modules/todoForm.js'
-import { onClickByList, addInitList } from './modules/todoList.js'
-import { updateTimers } from './modules/deadline.js'
+import { refs } from '@modules/dom.js'
+import { onSubmit } from '@modules/todoForm.js'
+import { onClickByList, addInitList } from '@modules/todoList.js'
+import { updateTimers } from '@modules/deadline.js'
 
 refs.todoForm.addEventListener('submit', onSubmit)
 refs.list.addEventListener('click', onClickByList)
