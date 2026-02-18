@@ -1,0 +1,22 @@
+body {
+  height: max-content;
+
+  margin: 0;
+
+  box-sizing: border-box;
+
+  color: rgb(200, 200, 200);
+  background-color: rgb(39, 43, 48);
+
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-size-adjust: 100%;
+
+  display: block;
+}
+
+.container-fluid {
+  width: 100%;
+}

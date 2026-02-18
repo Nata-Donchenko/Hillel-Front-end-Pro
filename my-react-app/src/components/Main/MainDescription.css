@@ -1,0 +1,13 @@
+.description {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.description p {
+  margin: 0 0 10px;
+}
+
+.description h4 {
+  margin-bottom: 40px;
+
+  font-size: 18px;
+}

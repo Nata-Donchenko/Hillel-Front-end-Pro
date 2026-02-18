@@ -1,0 +1,39 @@
+.container {
+  max-width: 100%;
+
+  padding: 0;
+}
+
+.container-fluid {
+  margin-top: 60px;
+}
+
+.jumbotron {
+  padding: 48px 0;
+
+  margin-bottom: 30px;
+
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+
+  box-sizing: border-box;
+
+  background-color: #1c1e22;
+}
+
+.jumbotron h1 {
+  font-size: 63px;
+}
+
+.lead {
+  margin-bottom: 15px;
+
+  font-size: 21px;
+  font-weight: 200;
+}
+
+.lead a {
+  color: #ffffff;
+
+  text-decoration: none;
+}
