@@ -1,0 +1,11 @@
+img {
+  width: 50px;
+}
+
+h2, h3, img, span {
+  margin: 0 0 10px 0;
+}
+
+h2 {
+  color: red;
+}

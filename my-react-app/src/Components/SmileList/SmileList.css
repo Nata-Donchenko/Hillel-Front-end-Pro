@@ -1,0 +1,8 @@
+button:hover {
+  cursor: pointer;
+}
+
+button img {
+  width: 50px;
+  margin: 0;
+}
