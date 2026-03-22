@@ -1,20 +1,20 @@
-// # Домашнє завдання 2. PostCatalog
-// Реалізуйте компонент `<PostCatalog />`, який відображає статті, отримані із зовнішнього сервера.
-//
+// # Домашнє завдання 3. MarkdownEditor
+// Реалізуйте компонент `<MarkdownEditor />`, який є React-обгорткою для плагіна `@toast-ui/editor`.
 // ## Умова
-// Список постів можна отримати, зробивши запит на сервер:
-//   https://github.com/junjun-it-courses/react-hw/blob/master/task-14/script.js
-//     Структура, яку ви повинні отримати в результаті:
-//   https://github.com/junjun-it-courses/react-hw/blob/master/task-14/layout.html
-//     Кожен наступний `li` — це окремий пост.
-//
-// ## Підказка
-//   `fetch`:
-// https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch
+// Цей плагін дозволяє вбудувати на сторінку Markdown-редактор.
+//   Використання: `script.js`
+// Компонент приймає функцію через властивість `onContentChange`, яка викликається при кожній зміні в редакторі.
+//   Функція приймає поточний вміст редактора.
+//   Приклад використання можна побачити у файлі:
+//   https://github.com/junjun-it-courses/react-hw/blob/master/task-15/index.jsx
+//     Приклад роботи редактора можна переглянути на сторінці документації.
+// ## Важливо
+// Обов’язково реалізуйте все на функціональних компонентах.
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(

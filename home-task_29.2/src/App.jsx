@@ -1,6 +1,5 @@
 import {Container, Row, Col} from "react-bootstrap";
-
-import PostCatalog from "./components/PostCatalog";
+import MarkdownEditor from "./components/MarkdownEditor";
 
 const App = () => {
 
@@ -8,7 +7,7 @@ const App = () => {
       <Container>
         <Row className="h-100 justify-content-center align-items-center">
           <Col xs="auto" className="text-center">
-            <PostCatalog/>
+            <MarkdownEditor onContentChange={console.log}/>
           </Col>
         </Row>
       </Container>
