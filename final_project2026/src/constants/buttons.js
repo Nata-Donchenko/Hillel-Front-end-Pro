@@ -1,0 +1,1 @@
+export const NEWSLETTER_BUTTON = 'Subscribe to Newsletter'
